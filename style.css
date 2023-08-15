@@ -1,0 +1,171 @@
+/* RESET CSS */
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* FIM RESET CSS */
+
+.carrossel {
+    display: none;
+    height: 570px;
+    background-color: #e1dfff;
+}
+
+.centro {
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(font/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url(font/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url(font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans Bold';
+    src: url(font/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(font/Roboto-Regular.ttf);
+}
+
+/* ESTILIZAÇÃO */
+h1 {
+    font: 500 35px 'Poppins Bold';
+    /* background-color: #a2eab3;
+    height: 100px; */
+    display: flex;
+    padding-top: 22px;
+    margin-left: 150px;
+    color: #2b044f;
+}
+
+.inicio {
+    background-color: #28035f;
+}
+
+.titulo {
+    font: 600 30px 'Poppins Bold';
+    color: #f2e9ff;
+    margin-left: 150px;
+    padding-top: 100px;
+}
+
+.text {
+    font: 400 19px 'OpenSans';
+    color: #f2e9ff;
+    margin-left: 150px;
+    margin-right: 200px;
+    margin-top: 10px;
+    text-align: justify;
+    padding-bottom: 110px;
+}
+
+.background {
+    background-color: #a6a2ea;
+    height: 100px;
+}
+
+.tudo {
+    height: 300px;
+    background-color: #e1dfff;
+}
+
+.h {
+    font: 500 35px 'Poppins Bold';
+    display: flex;
+    padding-top: 57px;
+    padding-left: 150px;
+    color: #2b044f;
+}
+
+#nomeLivro {
+    padding: 15px 70px;
+    border-radius: 10px;
+}
+
+#autorLivro {
+    padding: 15px 40px;
+    border-radius: 10px;
+}
+
+#anoLivro {
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+::placeholder {
+    font-family: 'Poppins';
+}
+
+.inputs {
+    padding: 25px 150px;
+}
+
+button {
+    font: 500 15px 'Poppins';
+
+    margin-top: 20px;
+    background-color: #a6a2ea;
+    border-radius: 10px;
+    padding: 12px 25px;
+}
+
+#quantidadeLivros {
+    margin-top: 20px;
+    font: 500 18px 'Poppins';
+}
+
+#textoCadastro {
+    margin-top: 10px;
+    font: 500 18px 'Poppins';
+}
+
+.img {
+    margin-top: 30px;
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+}
+
+.rodape {
+
+    height: 230px;
+    background-color: #28035f;
+}
+
+.rodTec {
+    text-align: center;
+    padding-top: 80px;
+    color: #fff;
+    font: 600 26px 'Poppins Bold';
+}
+
+.rodTecc {
+    text-align: center;
+    font: 400 22px 'OpenSans';
+    color: #fff;
+}

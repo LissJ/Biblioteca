@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background">
+        <h1>
+            Cadastro de Livros
+        </h1>
+    </div>
+
+    <section class="inicio">
+        <div class="conteudo">
+            <h2 class="titulo">
+                Mais Informações
+            </h2>
+            <p class="text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur fuga, aliquid labore, vero
+                placeat temporibus cum modi sapiente similique ex recusandae iure. Obcaecati iure illo quae
+                eveniet pariatur quisquam asperiores! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Consectetur fuga, aliquid labore, vero
+                placeat temporibus cum modi sapiente similique ex recusandae iure. Obcaecati iure illo quae
+                eveniet pariatur quisquam asperiores.
+            </p>
+        </div>
+    </section>
+
+    <div class="tudo">
+        <div class="pesquiseAqui">
+            <h2 class="h">
+                Pesquise seus livros e mangás favoritos aqui!
+            </h2>
+        </div>
+        <div class="centro">
+            <div class="inputs">
+                <input type="text" id="nomeLivro" placeholder="Nome">
+                <input type="text" id="autorLivro" placeholder="Autor">
+                <input type="number" id="anoLivro" placeholder="Ano">
+                <button onclick="adicionar()">
+                    Adicionar Livro
+                </button>
+                <button onclick="mostrarLivros()">
+                    Mostrar
+                </button>
+                <button onclick="apagarLivros()">
+                    Apagar registro
+                </button>
+            </div>
+
+
+
+
+            <p id="quantidadeLivros"></p>
+            <p id="textoCadastro"></p>
+
+
+            <div class="carrossel">
+                <img class="img" id="carrosselImagem" src="" alt="Imagem do Carrossel">
+                <div class="botoes">
+                    <button class="bot" id="anterior">
+                        <</button>
+                            <button class="bot" id="proximo">></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="rodape">
+            <div class="palavras">
+                <h3 class="rodTec">
+                    TecInfo
+                </h3>
+                <aside>
+                    <h4 class="rodTecc">
+                        Sua melhor indústria de tecnologia!
+                    </h4>
+                </aside>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        let biblioteca = [];
+        const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png', 'image5.png', 'image6.png', 'image7.png'];
+        let imagensAtivas = [];
+
+        function cadastro(nome, autor, ano) {
+            var livro = {
+                titulo: nome,
+                autor: autor,
+                ano: ano
+            };
+            biblioteca.push(livro);
+            atualizarQuantidadeLivros();
+
+            // Adicionar a imagem correspondente ao livro no carrossel, apenas se não exceder a quantidade de imagens disponíveis
+            if (biblioteca.length <= IMAGENS.length) {
+                imagensAtivas.push(IMAGENS[biblioteca.length - 1]);
+                imgIndice = biblioteca.length - 1; // Atualizar o índice para a imagem recém-adicionada
+                carregar();
+            }
+
+            // Exibir o carrossel após o cadastro de um livro
+            document.querySelector('.carrossel').style.display = 'block';
+        }
+
+        function adicionar() {
+            let nome = document.getElementById('nomeLivro').value;
+            let autor = document.getElementById('autorLivro').value;
+            let ano = document.getElementById('anoLivro').value;
+            cadastro(nome, autor, ano);
+        }
+
+        function mostrarLivros() {
+            for (let x of biblioteca) {
+                console.log(x.titulo, x.autor, x.ano);
+            }
+        }
+
+        function apagarLivros() {
+            biblioteca.length = 0;
+            imagensAtivas.length = 0; // Limpa o carrossel
+            document.querySelector('.carrossel').style.display = 'none';
+            atualizarQuantidadeLivros();
+        }
+
+        function atualizarQuantidadeLivros() {
+            const quantidadeLivros = biblioteca.length;
+            const quantidadeLivrosText = quantidadeLivros === 1 ? '1 livro cadastrado' : `${quantidadeLivros} livros cadastrados`;
+            document.getElementById('quantidadeLivros').textContent = quantidadeLivrosText;
+
+            const textoCadastro = quantidadeLivros === 0 ? 'Cadastre um livro' : '';
+            document.getElementById('textoCadastro').textContent = textoCadastro;
+        }
+
+        let imgIndice = 0;
+        var IMG = document.getElementById('carrosselImagem');
+        function carregar(index = imgIndice) {
+            IMG.src = imagensAtivas[index];
+            imgIndice = index;
+        }
+        const prevButton = document.getElementById('anterior');
+        const nextButton = document.getElementById('proximo');
+
+        prevButton.addEventListener('click', () => {
+            if (imgIndice === 0) {
+                imgIndice = imagensAtivas.length - 1;
+            } else {
+                --imgIndice;
+            }
+            carregar();
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (imgIndice === imagensAtivas.length - 1) {
+                imgIndice = 0;
+            } else {
+                ++imgIndice;
+            }
+            carregar();
+        });
+    </script>
+</body>
+
+</html>
